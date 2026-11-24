@@ -741,6 +741,39 @@
             .section-title{ font-size:2.2rem; }
         }
 
+        /* Nav fits 10 items: tighter spacing, never break a [ LINK ] */
+        .logo{ white-space:nowrap; }
+        .nav-links{ gap:clamp(0.6rem, 1.1vw, 1.4rem); }
+        .nav-links a{ white-space:nowrap; font-size:0.85rem; }
+        @media (max-width: 1250px){ .nav-links a::before,.nav-links a::after{ content:''; } }
+        @media (max-width: 1050px){ .nav-links{ display:none; } }
+
+        /* Open source section */
+        .oss-role{
+            display:inline-block; font-size:0.75rem; letter-spacing:1px;
+            padding:0.15rem 0.6rem; margin-bottom:1rem;
+            background:var(--green); color:#000; text-shadow:none;
+        }
+        .oss-links{ display:flex; flex-wrap:wrap; gap:0.75rem; }
+        .oss-subtitle{
+            font-size:1.8rem; margin:3rem 0 1rem; color:var(--glyph);
+            text-shadow:0 0 8px var(--green);
+        }
+        .oss-subtitle::before{ content:'$ '; color:var(--green-dim); }
+        .contrib-list{
+            list-style:none; display:grid; gap:1rem;
+            grid-template-columns:repeat(auto-fit, minmax(260px, 1fr));
+        }
+        .contrib-list li{
+            border:1px solid var(--green-dim); background:var(--panel);
+            padding:1rem 1.25rem; transition:all 0.3s ease;
+        }
+        .contrib-list li:hover{ border-color:var(--green); box-shadow:0 0 18px rgba(0,255,65,0.3); }
+        .contrib-list a,.contrib-list .contrib-name{ color:var(--glyph); text-decoration:none; font-weight:700; text-shadow:0 0 6px var(--green); }
+        .contrib-list a:hover{ text-decoration:underline; }
+        .contrib-list li::before{ content:'git commit --author=vishwagw › '; display:block; font-size:0.7rem; color:var(--green-dim); margin-bottom:0.3rem; }
+        .contrib-list p{ color:#7dffa0; font-size:0.85rem; margin-top:0.3rem; }
+
         /* Accessibility: honor reduced-motion */
         @media (prefers-reduced-motion: reduce){
             *,*::before,*::after{ animation:none !important; }
@@ -817,6 +850,7 @@
                 <li><a href="#journey">JOURNEY</a></li>
                 <li><a href="#highlights">WORK</a></li>
                 <li><a href="#projects">PROJECTS</a></li>
+                <li><a href="#opensource">OPEN_SOURCE</a></li>
                 <li><a href="#research">RESEARCH</a></li>
                 <li><a href="#articles">ARTICLES</a></li>
                 <li><a href="#press">PRESS</a></li>
@@ -1108,22 +1142,6 @@
                 </div>
 
                 <div class="card">
-                    <h3>SKYSIM - An opensource simulator for drones</h3>
-                    <div class="tech-tags">
-                        <span class="tech-tag">DRONE_TECH</span>
-                        <span class="tech-tag">SIM</span>
-                        <span class="tech-tag">OPENSOURCE</span>
-                    </div>
-                    <p>An opensource simulator for testing and training autonomous drone algorithms</p>
-                    <div class="video-container">
-                        <iframe src="https://www.youtube.com/embed/hV_tvVuYYos" allowfullscreen></iframe>
-                    </div>
-                    <a href="https://youtu.be/hV_tvVuYYos" target="_blank" class="youtube-link">
-                        <i class="fab fa-youtube"></i> EXECUTE_DEMO
-                    </a>
-                </div>
-                
-                <div class="card">
                     <h3>AI-powered warefare analyzer software</h3>
                     <div class="tech-tags">
                         <span class="tech-tag">AI</span>
@@ -1303,7 +1321,76 @@
             </div>
         </section>
 
-        <!-- Research Areas -->
+        <!-- Open Source Section -->
+        <section id="opensource" class="section">
+            <h2 class="section-title">OPEN_SOURCE.GIT</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>SkySim Drone Simulator 3.0</h3>
+                    <span class="oss-role">CREATOR &amp; MAINTAINER</span>
+                    <div class="tech-tags">
+                        <span class="tech-tag">C++20</span>
+                        <span class="tech-tag">WEBASSEMBLY</span>
+                        <span class="tech-tag">GODOT</span>
+                        <span class="tech-tag">ARDUPILOT</span>
+                        <span class="tech-tag">PX4</span>
+                        <span class="tech-tag">HITL</span>
+                    </div>
+                    <p>Open-source multirotor flight simulator for testing drone autonomy. C++20 physics core compiled to WebAssembly so it runs in the browser, shipped as a Godot 4 extension, with ArduPilot, PX4 and Betaflight firmware-in-the-loop and a Python agent interface. MIT licensed.</p>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/cGQTMcYAAWU" title="SkySim Drone Simulator 3.0 demo" allowfullscreen></iframe>
+                    </div>
+                    <div class="oss-links">
+                        <a href="https://github.com/vishwagw/Sky-Sim-drone-simulator-3.0" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> VIEW_SOURCE</a>
+                        <a href="https://youtu.be/cGQTMcYAAWU" target="_blank" rel="noopener" class="youtube-link"><i class="fab fa-youtube"></i> WATCH_DEMO</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>KOMPAS Ground Control Station</h3>
+                    <span class="oss-role">CREATOR</span>
+                    <div class="tech-tags">
+                        <span class="tech-tag">PYTHON</span>
+                        <span class="tech-tag">GCS</span>
+                        <span class="tech-tag">UDP</span>
+                        <span class="tech-tag">TELEMETRY</span>
+                        <span class="tech-tag">UAV</span>
+                    </div>
+                    <p>Open-source ground control station for low-cost WiFi RC drones. Flight control, live telemetry, video with HUD overlay, a pre-flight checklist and safety monitor that gates takeoff, and a built-in simulator mode that needs no hardware. Apache 2.0.</p>
+                    <div class="oss-links">
+                        <a href="https://github.com/vishwagw/KOMPAS-GCS" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> VIEW_SOURCE</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Kestrel Research &middot; flypi</h3>
+                    <span class="oss-role">FOUNDER &amp; MAINTAINER</span>
+                    <div class="tech-tags">
+                        <span class="tech-tag">PYTHON</span>
+                        <span class="tech-tag">PYMAVLINK</span>
+                        <span class="tech-tag">RASPBERRY_PI</span>
+                        <span class="tech-tag">ARDUPILOT</span>
+                        <span class="tech-tag">PX4</span>
+                        <span class="tech-tag">PYPI</span>
+                    </div>
+                    <p>Kestrel Research builds open-source Python libraries for drone autonomy, from the Raspberry Pi up to research. Its first library, flypi, lets you fly ArduPilot and PX4 drones from a Raspberry Pi in a few lines of Python. Built on pymavlink and available on PyPI.</p>
+                    <div class="oss-links">
+                        <a href="https://github.com/kestrel-research/flypi" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> FLYPI</a>
+                        <a href="https://github.com/kestrel-research" target="_blank" rel="noopener" class="project-link"><i class="fas fa-sitemap"></i> KESTREL_ORG</a>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="oss-subtitle">CONTRIBUTIONS</h3>
+            <ul class="contrib-list">
+                <li><a href="https://github.com/mavlink/MAVSDK-Python" target="_blank" rel="noopener"><i class="fab fa-github"></i> MAVSDK-Python</a><p>MAVSDK client for Python: the API for controlling MAVLink drones.</p></li>
+                <li><a href="https://github.com/MRPT/mrpt" target="_blank" rel="noopener"><i class="fab fa-github"></i> MRPT</a><p>Mobile Robot Programming Toolkit: C++ libraries for SLAM, localization, motion planning and computer vision.</p></li>
+                <li><a href="https://github.com/capstone-insper/drone-swarm-search" target="_blank" rel="noopener"><i class="fab fa-github"></i> Drone Swarm Search</a><p>PettingZoo environment for training drone swarms on search-and-rescue missions.</p></li>
+                <li><a href="https://github.com/AgileRL/AgileRL" target="_blank" rel="noopener"><i class="fab fa-github"></i> AgileRL</a><p>Reinforcement learning framework with evolutionary hyperparameter optimization.</p></li>
+            </ul>
+        </section>
+
+        <!-- Research Section -->
         <section id="research" class="section">
             <h2 class="section-title">RESEARCH_MODULES.DB</h2>
             <div class="grid">
