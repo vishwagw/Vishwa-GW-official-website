@@ -754,6 +754,12 @@
             padding:0.15rem 0.6rem; margin-bottom:1rem;
             background:var(--green); color:#000; text-shadow:none;
         }
+        .oss-install{
+            margin:0 0 1rem; padding:0.6rem 0.9rem; overflow-x:auto;
+            background:#000; border:1px solid var(--green-dim); color:var(--glyph);
+            font-family:'Share Tech Mono',monospace; font-size:0.9rem;
+        }
+        .oss-install code::before{ content:'$ '; color:var(--green-dim); }
         .oss-links{ display:flex; flex-wrap:wrap; gap:0.75rem; }
         .oss-subtitle{
             font-size:1.8rem; margin:3rem 0 1rem; color:var(--glyph);
@@ -1363,21 +1369,36 @@
                 </div>
 
                 <div class="card">
-                    <h3>Kestrel Research &middot; flypi</h3>
-                    <span class="oss-role">FOUNDER &amp; MAINTAINER</span>
+                    <h3>flypi</h3>
+                    <span class="oss-role">CREATOR &amp; MAINTAINER</span>
                     <div class="tech-tags">
                         <span class="tech-tag">PYTHON</span>
                         <span class="tech-tag">PYMAVLINK</span>
                         <span class="tech-tag">RASPBERRY_PI</span>
                         <span class="tech-tag">ARDUPILOT</span>
                         <span class="tech-tag">PX4</span>
-                        <span class="tech-tag">PYPI</span>
                     </div>
-                    <p>Kestrel Research builds open-source Python libraries for drone autonomy, from the Raspberry Pi up to research. Its first library, flypi, lets you fly ArduPilot and PX4 drones from a Raspberry Pi in a few lines of Python. Built on pymavlink and available on PyPI.</p>
+                    <p>High-level Python library to fly ArduPilot and PX4 drones from a Raspberry Pi in a few lines of Python. Built on pymavlink: connect, arm, take off, land and read telemetry. Published on PyPI. Apache 2.0.</p>
+                    <pre class="oss-install"><code>pip install flypi</code></pre>
                     <div class="oss-links">
-                        <a href="https://github.com/kestrel-research/flypi" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> FLYPI</a>
-                        <a href="https://github.com/kestrel-research" target="_blank" rel="noopener" class="project-link"><i class="fas fa-sitemap"></i> KESTREL_ORG</a>
+                        <a href="https://github.com/kestrel-research/flypi" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> VIEW_SOURCE</a>
+                        <a href="https://pypi.org/project/flypi/" target="_blank" rel="noopener" class="project-link"><i class="fab fa-python"></i> PYPI</a>
                     </div>
+                </div>
+
+                <div class="card">
+                    <h3>Kestrel Research</h3>
+                    <span class="oss-role">FOUNDER &amp; MAINTAINER</span>
+                    <div class="tech-tags">
+                        <span class="tech-tag">OPEN_SOURCE_ORG</span>
+                        <span class="tech-tag">DRONE_AUTONOMY</span>
+                        <span class="tech-tag">PYTHON</span>
+                    </div>
+                    <p>Open-source organization building Python libraries for drone autonomy, from the Raspberry Pi up to research. Home of flypi, with a research library on the way.</p>
+                    <div class="oss-links">
+                        <a href="https://github.com/kestrel-research" target="_blank" rel="noopener" class="project-link"><i class="fab fa-github"></i> KESTREL_ORG</a>
+                    </div>
+                </div>
                 </div>
             </div>
 
